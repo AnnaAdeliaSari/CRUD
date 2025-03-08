@@ -103,7 +103,7 @@ public class UserInterface {
                         System.out.print("Pilih :");
                         pilihan = sc.nextLine();
                         if (pilihan.equalsIgnoreCase("Y")){
-                            status = db.delate(index);
+                            status = db.delete(index);
                             if (status==true) {
                                 System.out.println("DATA BERHASIL DIHAPUS");
                             }else {
