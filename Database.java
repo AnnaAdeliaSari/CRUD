@@ -112,11 +112,21 @@ public class Database {
         boolean status = false;
         if (!data.isEmpty()){
             //Update
-            if (index >= 0 && index < data.size()){
-                Mahasiswa mhs = new Mahasiswa(nim, nama, alamat, semester, sks, ipk);
-                data.set(index, mhs);
-                save();
-                status = true;
+           boolean isNimExist = false;
+            for (int i = 0; i < data.size(); i++) {
+                if (i != index && data.get(i).getNim().equals(nim)) {
+                    isNimExist = true;
+                    break;
+                }
+            }
+
+            if (!isNimExist) {
+                if (index >= 0 && index < data.size()) {
+                    Mahasiswa mhs = new Mahasiswa(nim, nama, alamat, semester, sks, ipk);
+                    data.set(index, mhs);
+                    save();
+                    status = true;
+                }
             }
         }
         return status;
