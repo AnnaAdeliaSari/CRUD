@@ -122,7 +122,7 @@ public class Database {
         return status;
     }
 
-    public  boolean delate(int index){
+    public  boolean delete(int index){
         boolean status = false;
         if (!data.isEmpty()){
             data.remove(index);
